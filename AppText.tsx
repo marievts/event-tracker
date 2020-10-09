@@ -31,12 +31,12 @@ class ParagraphText extends React.Component<{
 const styles = StyleSheet.create({
   title: {
     color: '#FFF',
-    fontFamily: 'HeadFont_700Bold',
+    fontFamily: 'head-700',
     fontSize: 36,
   },
   paragraph: {
     color: '#57606F',
-    fontFamily: 'BodyFont_300Light',
+    fontFamily: 'body-300',
     fontSize: 16,
   },
 })

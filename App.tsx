@@ -7,11 +7,11 @@ import { TitleText, ParagraphText } from './AppText'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    'HeadFont_400Regular': require('./assets/fonts/FiraSans-Regular.ttf'),
-    'HeadFont_700Bold': require('./assets/fonts/FiraSans-Bold.ttf'),
-    'BodyFont_300Light': require('./assets/fonts/Montserrat-Light.ttf'),
-    'BodyFont_400Regular': require('./assets/fonts/Montserrat-Regular.ttf'),
-    'BodyFont_500Medium': require('./assets/fonts/Montserrat-Medium.ttf'),
+    'head-400': require('./assets/fonts/FiraSans-Regular.ttf'),
+    'head-700': require('./assets/fonts/FiraSans-Bold.ttf'),
+    'body-300': require('./assets/fonts/Montserrat-Light.ttf'),
+    'body-400': require('./assets/fonts/Montserrat-Regular.ttf'),
+    'body-500': require('./assets/fonts/Montserrat-Medium.ttf'),
   })
 
   if (!fontsLoaded) {
