@@ -4,6 +4,7 @@ import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { TitleText, ParagraphText } from './AppText'
+import { colors, currentTheme } from './theme'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,12 +21,12 @@ export default function App() {
     return (
       <View style={styles.container}>
         <View style={styles.menuHeader}>
-          <FontAwesome5 name="bars" size={30} color="#FFF" />
+          <FontAwesome5 name="bars" size={30} color={colors.title} />
         </View>
         <View style={styles.calendarHeader}>
-          <FontAwesome5 name="angle-left" size={24} color="#FFF" />
+          <FontAwesome5 name="angle-left" size={24} color={colors.title} />
           <TitleText text="Month"></TitleText>
-          <FontAwesome5 name="angle-right" size={24} color="#FFF" />
+          <FontAwesome5 name="angle-right" size={24} color={colors.title} />
         </View>
         <View style={styles.body}>
           <ParagraphText text="Calendar to come here."></ParagraphText>
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: '#81A7B4',
-    color: '#57606F',
+    backgroundColor: currentTheme.primary,
+    color: colors.text,
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 30,
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     padding: 25,
-    backgroundColor: '#FFF',
+    backgroundColor: colors.background,
     borderTopStartRadius: 40,
     borderTopEndRadius: 40,
   },
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 30,
-    color: '#FFF',
+    color: colors.title,
     alignContent: 'flex-start',
   },
 })
