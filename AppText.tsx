@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
-import { colors } from './theme'
+import { theme } from './theme'
 
 class TitleText extends React.Component<{
     text: string;
@@ -31,14 +31,14 @@ class ParagraphText extends React.Component<{
 //Styles
 const styles = StyleSheet.create({
   title: {
-    color: colors.title,
-    fontFamily: 'head-700',
-    fontSize: 36,
+    color: theme.colors.title,
+    fontFamily: theme.fonts.heading.font,
+    fontSize: theme.fonts.heading.size,
   },
   paragraph: {
-    color: colors.text,
-    fontFamily: 'body-300',
-    fontSize: 16,
+    color: theme.colors.text,
+    fontFamily: theme.fonts.body.font,
+    fontSize: theme.fonts.body.size,
   },
 })
 
