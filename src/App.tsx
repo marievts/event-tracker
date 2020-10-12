@@ -3,8 +3,9 @@ import { StyleSheet, View } from 'react-native'
 import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
 import { FontAwesome5 } from '@expo/vector-icons'
-import { TitleText, ParagraphText } from './AppText'
-import { theme, currentTheme } from './theme'
+import { TitleText, ParagraphText } from './Components/AppText'
+import { theme, currentTheme } from './Components/theme'
+import Calendar from './Components/Calendar'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -43,7 +44,7 @@ export default function App() {
         </View>
 
         <View style={styles.body}>
-          <ParagraphText text="Calendar to come here."></ParagraphText>
+          <Calendar />
         </View>
 
       </View>
