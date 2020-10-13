@@ -1,11 +1,10 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Platform, StatusBar } from 'react-native'
 import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
 import { FontAwesome5 } from '@expo/vector-icons'
-import { TitleText, ParagraphText } from './Components/AppText'
 import { theme, currentTheme } from './Components/theme'
-import Calendar from './Components/Calendar'
+import MonthCalendar from './Components/MonthCalendar'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,7 +19,7 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
 
         <View style={styles.menuHeader}>
           <FontAwesome5
@@ -29,25 +28,10 @@ export default function App() {
             color={theme.colors.title}
           />
         </View>
-        <View style={styles.calendarHeader}>
-          <FontAwesome5
-            name="angle-left"
-            size={theme.icons.title.size}
-            color={theme.colors.title}
-          />
-          <TitleText text="Month"></TitleText>
-          <FontAwesome5
-            name="angle-right"
-            size={theme.icons.title.size}
-            color={theme.colors.title}
-          />
-        </View>
 
-        <View style={styles.body}>
-          <Calendar />
-        </View>
+        <MonthCalendar />
 
-      </View>
+      </SafeAreaView>
     )
   }
 }
@@ -59,9 +43,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: currentTheme.primary,
     color: theme.colors.text,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 30,
+    alignItems: 'stretch',
+    justifyContent: 'flex-start',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 15 : 0
   },
   body: {
     flex: 1,
@@ -71,17 +55,11 @@ const styles = StyleSheet.create({
     borderTopStartRadius: 40,
     borderTopEndRadius: 40,
   },
-  calendarHeader: {
-    flexDirection: 'row',
-    width: '80%',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
   menuHeader: {
     flexDirection: 'row',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingHorizontal: 15
+    paddingHorizontal: 20,
   },
 })
