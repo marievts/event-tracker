@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, View, SafeAreaView, Platform, StatusBar } from 'react-native'
 import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
-import { FontAwesome5 } from '@expo/vector-icons'
 import { theme, currentTheme } from './Components/theme'
 import MonthCalendar from './Components/MonthCalendar'
+import ButtonHeader from './Components/ButtonHeader'
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -20,17 +20,8 @@ export default function App() {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-
-        <View style={styles.menuHeader}>
-          <FontAwesome5
-            name="bars"
-            size={theme.icons.menu.size}
-            color={theme.colors.title}
-          />
-        </View>
-
+        <ButtonHeader />
         <MonthCalendar />
-
       </SafeAreaView>
     )
   }
@@ -54,12 +45,5 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.background,
     borderTopStartRadius: 40,
     borderTopEndRadius: 40,
-  },
-  menuHeader: {
-    flexDirection: 'row',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingHorizontal: 20,
   },
 })
