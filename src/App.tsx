@@ -1,10 +1,16 @@
+import 'react-native-gesture-handler';
 import React from 'react'
-import { StyleSheet, View, SafeAreaView, Platform, StatusBar } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
+
+import HomeScreen from './HomeScreen'
+import MenuScreen from './MenuScreen'
+
 import { theme, currentTheme } from './Components/theme'
-import MonthCalendar from './Components/MonthCalendar'
-import ButtonHeader from './Components/ButtonHeader'
+
+const Stack = createStackNavigator();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,31 +25,23 @@ export default function App() {
     return <AppLoading />
   } else {
     return (
-      <SafeAreaView style={styles.container}>
-        <ButtonHeader />
-        <MonthCalendar />
-      </SafeAreaView>
+      <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              title: '',
+              headerStyle: {
+                backgroundColor: currentTheme.primary,
+                shadowOpacity: 0,
+                elevation: 0,
+                borderBottomWidth: 0,
+              },
+              headerTintColor: theme.colors.title,
+            }}
+          >
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Menu" component={MenuScreen} />
+          </Stack.Navigator>
+      </NavigationContainer>
     )
   }
 }
-
-//Styles
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: currentTheme.primary,
-    color: theme.colors.text,
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight + 15 : 0
-  },
-  body: {
-    flex: 1,
-    width: '100%',
-    padding: 25,
-    backgroundColor: theme.colors.background,
-    borderTopStartRadius: 40,
-    borderTopEndRadius: 40,
-  },
-})
