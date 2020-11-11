@@ -1,7 +1,8 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { theme, currentTheme } from './Components/theme'
+import { MenuLink } from './Components/AppText'
 
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from './types'
@@ -32,8 +33,9 @@ function MenuScreen ({ route, navigation }: Props) {
   }, [navigation]);
   return (
     <View style={styles.container}>
-        <Text>Link 1</Text>
-        <Text>Link 2</Text>
+        <MenuLink text='Calendar' icon='calendar' onPress={() => navigation.navigate('Home')} />
+        <MenuLink text='Event' icon='list' onPress={() => navigation.navigate('Home')}/>
+        <MenuLink text='Parameters' icon='cog' onPress={() => navigation.navigate('Home')}/>
     </View>
   )
 }

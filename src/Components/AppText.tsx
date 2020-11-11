@@ -1,6 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text } from 'react-native'
-import { theme } from './theme'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { FontAwesome5 } from '@expo/vector-icons'
+import { currentTheme, theme } from './theme'
 
 class TitleText extends React.Component<{
     text: string;
@@ -28,6 +30,29 @@ class ParagraphText extends React.Component<{
   }
 }
 
+class MenuLink extends React.Component<{
+  text: string;
+  icon: string;
+  onPress: () => void;
+}> {
+
+render() {
+  return (
+    <TouchableOpacity onPress={this.props.onPress} style={styles.linkContainer}>
+      <FontAwesome5
+        name={this.props.icon}
+        size={theme.icons.menu.size}
+        color={currentTheme.primary}
+        style={{marginRight: 10}}
+      />
+      <Text style={styles.link}>
+        {this.props.text}
+      </Text>
+    </TouchableOpacity>
+  )
+}
+}
+
 //Styles
 const styles = StyleSheet.create({
   title: {
@@ -40,6 +65,16 @@ const styles = StyleSheet.create({
     fontFamily: theme.fonts.body.font,
     fontSize: theme.fonts.body.size,
   },
+  linkContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  link: {
+    color: currentTheme.primary,
+    fontFamily: theme.fonts.heading.font,
+    fontSize: theme.fonts.heading.size,
+  },
 })
 
-export {TitleText, ParagraphText}
+export {TitleText, ParagraphText, MenuLink}
