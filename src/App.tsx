@@ -35,7 +35,6 @@ export default function App() {
                 elevation: 0,
                 borderBottomWidth: 0,
               },
-              headerTintColor: theme.colors.title,
             }}
           >
             <Stack.Screen name="Home" component={HomeScreen} />
