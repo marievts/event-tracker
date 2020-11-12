@@ -70,13 +70,13 @@ class MenuText extends React.Component<{
 const styles = StyleSheet.create({
   title: {
     color: theme.colors.title,
-    fontFamily: theme.fonts.heading.font,
-    fontSize: theme.fonts.heading.size,
+    fontFamily: theme.fonts.heading,
+    fontSize: theme.sizes.heading,
   },
   paragraph: {
     color: theme.colors.text,
-    fontFamily: theme.fonts.body.font,
-    fontSize: theme.fonts.body.size,
+    fontFamily: theme.fonts.body,
+    fontSize: theme.sizes.body,
   },
   linkContainer: {
     flexDirection: 'row',
@@ -85,8 +85,8 @@ const styles = StyleSheet.create({
   },
   link: {
     color: currentTheme.primary,
-    fontFamily: theme.fonts.heading.font,
-    fontSize: theme.fonts.heading.size,
+    fontFamily: theme.fonts.heading,
+    fontSize: theme.sizes.heading,
   },
   linkIcon: {
     marginRight: 20,
@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
   },
   menuText: {
     color: currentTheme.primary,
-    fontFamily: theme.fonts.body.font,
-    fontSize: theme.fonts.body.size,
+    fontFamily: theme.fonts.body,
+    fontSize: theme.sizes.body,
   },
 })
 

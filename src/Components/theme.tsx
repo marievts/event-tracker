@@ -1,13 +1,12 @@
 const theme = {
     fonts: {
-        body: {
-            font: 'Montserrat-400',
-            size: 16,
-        },
-        heading: {
-            font: 'FiraSans-700',
-            size: 36,
-        },
+        body: 'Montserrat-400',
+        heading: 'FiraSans-700',
+    },
+    sizes: {
+        body: 18,
+        calendar: 16,
+        heading: 36,
     },
     icons: {
         menu: {
