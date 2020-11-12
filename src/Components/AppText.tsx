@@ -36,21 +36,34 @@ class MenuLink extends React.Component<{
   onPress: () => void;
 }> {
 
-render() {
-  return (
-    <TouchableOpacity onPress={this.props.onPress} style={styles.linkContainer}>
-      <FontAwesome5
-        name={this.props.icon}
-        size={theme.icons.menu.size}
-        color={currentTheme.primary}
-        style={{marginRight: 10}}
-      />
-      <Text style={styles.link}>
+  render() {
+    return (
+      <TouchableOpacity onPress={this.props.onPress} style={styles.linkContainer}>
+        <FontAwesome5
+          name={this.props.icon}
+          size={theme.icons.menu.size}
+          color={currentTheme.primary}
+          style={styles.linkIcon}
+        />
+        <Text style={styles.link}>
+          {this.props.text}
+        </Text>
+      </TouchableOpacity>
+    )
+  }
+}
+
+class MenuText extends React.Component<{
+  text: string;
+}> {
+
+  render() {
+    return (
+      <Text style={styles.menuText}>
         {this.props.text}
       </Text>
-    </TouchableOpacity>
-  )
-}
+    )
+  }
 }
 
 //Styles
@@ -68,13 +81,22 @@ const styles = StyleSheet.create({
   linkContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    marginVertical: 5,
   },
   link: {
     color: currentTheme.primary,
     fontFamily: theme.fonts.heading.font,
     fontSize: theme.fonts.heading.size,
   },
+  linkIcon: {
+    marginRight: 20,
+    marginTop: 4,
+  },
+  menuText: {
+    color: currentTheme.primary,
+    fontFamily: theme.fonts.body.font,
+    fontSize: theme.fonts.body.size,
+  },
 })
 
-export {TitleText, ParagraphText, MenuLink}
+export {TitleText, ParagraphText, MenuLink, MenuText}
