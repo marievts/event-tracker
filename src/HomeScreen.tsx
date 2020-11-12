@@ -1,8 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity } from 'react-native'
-import { FontAwesome5 } from '@expo/vector-icons'
+import { StyleSheet, View } from 'react-native'
 import { theme, currentTheme } from './Components/theme'
 import MonthCalendar from './Components/MonthCalendar'
+import MenuButton from './Components/MenuButton'
 
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from './types'
@@ -13,15 +13,7 @@ function HomeScreen ({ route, navigation }: Props) {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => navigation.push('Menu')}
-          style={{ marginHorizontal: 20 }}>
-          <FontAwesome5
-            name="bars"
-            size={theme.icons.menu.size}
-            color={theme.colors.title}
-          />
-        </TouchableOpacity>
+        <MenuButton onPress={() => navigation.push('Menu')} />
       ),
     });
   }, [navigation]);
