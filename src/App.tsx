@@ -7,6 +7,7 @@ import { useFonts } from 'expo-font'
 
 import HomeScreen from './HomeScreen'
 import MenuScreen from './MenuScreen'
+import EventsScreen from './EventsScreen'
 
 import { theme, currentTheme } from './Components/theme'
 
@@ -27,6 +28,7 @@ export default function App() {
     return (
       <NavigationContainer>
           <Stack.Navigator
+            initialRouteName="Home"
             screenOptions={{
               title: '',
               headerStyle: {
@@ -39,6 +41,7 @@ export default function App() {
           >
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Menu" component={MenuScreen} />
+            <Stack.Screen name="Events" component={EventsScreen} />
           </Stack.Navigator>
       </NavigationContainer>
     )

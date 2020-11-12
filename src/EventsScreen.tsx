@@ -2,14 +2,14 @@ import React from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import { theme, currentTheme } from './Components/theme'
-import MonthCalendar from './Components/MonthCalendar'
+import { TitleText, ParagraphText } from './Components/AppText'
 
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from './types'
 
-type Props = StackScreenProps<RootStackParamList,'Home'>
+type Props = StackScreenProps<RootStackParamList,'Events'>
 
-function HomeScreen ({ route, navigation }: Props) {
+function EventsScreen ({ route, navigation }: Props) {
   React.useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
@@ -28,21 +28,34 @@ function HomeScreen ({ route, navigation }: Props) {
 
   return (
     <View style={styles.container}>
-      <MonthCalendar />
+      <TitleText text='Events' />
+      <View style={styles.whiteContainer}>
+        <ParagraphText text='Create an event to'></ParagraphText>
+        <ParagraphText text='get started!'></ParagraphText>
+      </View>
     </View>
   )
 }
 
-export default HomeScreen
+export default EventsScreen
 
 //Styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    width: '100%',
+    height: '100%',
     backgroundColor: currentTheme.primary,
-    color: theme.colors.title,
-    alignItems: 'stretch',
-    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  whiteContainer: {
+    backgroundColor: theme.colors.title,
+    width: '100%',
+    height: '100%',
+    borderTopStartRadius: 50,
+    borderTopEndRadius: 50,
+    paddingTop: 35,
+    paddingHorizontal: 10,
+    alignItems: 'center',
   },
 })

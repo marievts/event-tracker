@@ -38,7 +38,7 @@ function MenuScreen ({ route, navigation }: Props) {
     <View style={styles.container}>
       <View style={styles.linkContainer}>
         <MenuLink text='Calendar' icon='calendar' onPress={() => navigation.navigate('Home')} />
-        <MenuLink text='Events' icon='list' onPress={() => navigation.navigate('Home')}/>
+        <MenuLink text='Events' icon='list' onPress={() => navigation.navigate('Events')}/>
         <MenuLink text='Parameters' icon='cog' onPress={() => navigation.navigate('Home')}/>
       </View>
       <View style={styles.footer}>
